@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <centre>
+    <h1>Query Form</h1>
+    <br/><br/>
+    {% if submitted %}
+        Your query was submitted Successfully !!!
+        <button class = "btn btn-secondary">
+            <a class="nav-item nav-link" href="{% url 'query' %}">Have more query</a>
+        </button>
+    {% else %}
+        <form action = "" method = POST >
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <input type = "submit" value = "Submit" class = "btn btn-success">
+        </form>
+    {% endif %}
+
+    
+    </centre>
+{% endblock content %}
